@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Codex Playbook">
+  <rect width="64" height="64" rx="12" fill="#111827"/>
+  <path fill="#f9fafb" d="M14 15h36v8H14zM14 29h24v6H14zM14 41h32v8H14z"/>
+  <path fill="#22c55e" d="M44 29l7 6-7 6z"/>
+</svg>
