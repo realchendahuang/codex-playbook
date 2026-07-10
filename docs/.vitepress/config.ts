@@ -56,7 +56,17 @@ export default defineConfig({
     logo: '/favicon.svg',
     nav: [
       { text: '手册', link: '/' },
-      { text: 'OpenAI Codex', link: 'https://developers.openai.com/codex/' }
+      { text: 'OpenAI Codex', link: 'https://learn.chatgpt.com/docs' },
+      {
+        text: 'Playbooks',
+        items: [
+          { text: '全部 Playbook', link: 'https://chendahuang.com/playbooks/', target: '_self', noIcon: true },
+          { text: 'Cloudflare', link: 'https://chendahuang.com/playbook/cloudflare/', target: '_self', noIcon: true },
+          { text: 'macOS', link: 'https://chendahuang.com/playbook/macos/', target: '_self', noIcon: true },
+          { text: 'Codex', link: 'https://chendahuang.com/playbook/codex/', target: '_self', noIcon: true }
+        ]
+      },
+      { text: '返回主站', link: 'https://chendahuang.com/', target: '_self', noIcon: true }
     ],
     search: {
       provider: 'local'

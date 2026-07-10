@@ -324,7 +324,7 @@ Context7 的典型配置是：
 codex mcp add context7 -- npx -y @upstash/context7-mcp
 ```
 
-这个项目当前环境没有直接暴露 Context7 工具，所以本文内容基于本地抓取的 Codex manual、OpenAI 官方文档、Cloudflare 官方文档和参考项目实现。实际团队里，如果经常查前端框架、ORM、云服务 SDK，建议把 Context7 配成 MCP。
+不要先假设 Context7 “没装”或“不可用”。先让 Codex 列出当前线程的工具；如果已经暴露 Context7，就直接用。没有时再检查 MCP 配置、授权和客户端重启状态。团队经常查前端框架、ORM、SDK 或云服务时，再把 Context7 配成 MCP，比每次靠模型记忆稳得多。
 
 ### <Search class="cat-icon" /> 上下文不是越多越好 {#上下文取舍}
 
@@ -809,6 +809,25 @@ url = "https://developers.openai.com/mcp"
 6. 汇总版本、URL、验证结果和回滚入口。
 ```
 
+## 12. 开源参考：学结构，不抄全家桶
+
+开源项目的价值不是“再装十个增强包”，而是帮你看清 Codex 的真实接口、扩展格式和自动化边界。优先读官方仓库和开放规范；第三方工具只解决明确痛点，不要让它反过来接管你的整个工作流。
+
+| 需求 | 第一选择 | 值得吸收的部分 | 不要照搬什么 |
+| --- | --- | --- | --- |
+| 看 CLI 实现、issue 和 release | [openai/codex](https://github.com/openai/codex) | CLI、Rust 实现、配置和协议演进 | 未发布分支不等于稳定产品合同 |
+| 看当前插件和 Skill 打包方式 | [openai/plugins](https://github.com/openai/plugins) | `.codex-plugin/plugin.json`、skills、MCP、hooks 和 marketplace 结构 | 不要一次安装整个目录 |
+| 在 CI 里跑可重复任务 | [openai/codex-action](https://github.com/openai/codex-action) | `codex exec`、最小权限、prompt file 和结构化输出 | 不要把不可信 PR 文本直接当提示词 |
+| 复现 Codex Cloud 基础环境 | [openai/codex-universal](https://github.com/openai/codex-universal) | 默认镜像、语言版本和本地 Docker 近似环境 | 它不是本地 Codex 的必装依赖 |
+| 做跨 Agent 可复用 Skill | [agentskills/agentskills](https://github.com/agentskills/agentskills) | `SKILL.md` 开放格式和渐进加载 | 规范兼容不代表各客户端行为完全一样 |
+| 在 macOS 看额度窗口 | [steipete/CodexBar](https://github.com/steipete/CodexBar) | 菜单栏额度、重置时间和多 provider 汇总 | 第三方读取会话或 cookie 前先看权限与隐私说明 |
+
+::: warning 别再从旧仓库起步
+[openai/skills](https://github.com/openai/skills) 已明确标记弃用。当前官方 Skill / Plugin 示例应看 `openai/plugins`；需要跨工具格式时再看 Agent Skills 规范。
+:::
+
+这套选择顺序很简单：**产品事实看官方文档，源代码和 release 看 `openai/codex`，扩展示例看 `openai/plugins`，跨客户端格式看 Agent Skills。** Stars 只能说明关注度，不能替代维护状态、权限模型和实际验证。
+
 ## 官方资源
 
 - [Codex 文档](https://learn.chatgpt.com/docs)
@@ -827,7 +846,7 @@ url = "https://developers.openai.com/mcp"
 - [Wrangler 配置文档](https://developers.cloudflare.com/workers/wrangler/configuration/)
 - [Cloudflare Workers Routes](https://developers.cloudflare.com/workers/configuration/routing/routes/)
 
-> 最后核对：2026-07-10。Codex 的表面、权限和扩展能力更新很快，使用时以官方文档和当前客户端实际可见能力为准。
+> 最后核对：2026-07-11。Codex 的表面、权限和扩展能力更新很快，使用时以官方文档和当前客户端实际可见能力为准。
 
 <div class="callout-strip">
   <strong>这份 Playbook 的一句话版本</strong>
