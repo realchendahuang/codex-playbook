@@ -5,7 +5,8 @@
 pnpm dev
 
 # 检查
-pnpm build
+pnpm check
+pnpm types
 pnpm preview
 
 # 快速部署到 Cloudflare Workers
@@ -22,8 +23,10 @@ pnpm exec wrangler whoami
 ```txt
 项目：Codex Playbook
 Cloudflare Worker：codex-playbook
-生产地址：https://codex-playbook.chendahuang.top/
+生产地址：https://chendahuang.com/playbook/codex/
+旧地址：https://codex-playbook.chendahuang.top
 构建目录：docs/.vitepress/dist
+Worker 入口：src/index.ts
 主文档：docs/index.md
 README 同步：pnpm sync:readme
 ```

@@ -7,7 +7,7 @@ const readmeIntro = `# Codex Playbook
 
 把 Codex 当成长期协作系统的中文实战手册。
 
-在线阅读：[codex-playbook.chendahuang.top](https://codex-playbook.chendahuang.top/)
+在线阅读：[chendahuang.com/playbook/codex](https://chendahuang.com/playbook/codex/)
 
 ## 全景图
 

@@ -2,7 +2,7 @@
 
 把 Codex 当成长期协作系统的中文实战手册。
 
-在线阅读：[codex-playbook.chendahuang.top](https://codex-playbook.chendahuang.top/)
+在线阅读：[chendahuang.com/playbook/codex](https://chendahuang.com/playbook/codex/)
 
 ## 全景图
 
@@ -55,6 +55,7 @@ Codex 的价值来自一条闭环：理解目标，读取上下文，制定步�
 | Codex CLI | 本地仓库里的开发、批处理、脚本化操作、终端优先工作流 | 需要大量可视化审阅或浏览器交互的任务 |
 | IDE Extension | 边写边改、看当前文件、局部重构、快速解释代码 | 长时间无人值守任务 |
 | Codex App | 计划、实现、Review、连接器、浏览器、图片、文档和多步骤交互 | 只想要极快的单行补全 |
+| Browser / Chrome / Computer Use | 网页验证、复用已登录浏览器、操作桌面应用 | 能用 API、CLI 或专用连接器稳定完成的结构化任务 |
 | Codex Cloud | 并行任务、PR 修复、云端隔离执行、从 GitHub 派活 | 依赖本机私有文件或未推送状态的任务 |
 | GitHub Review | PR 上的高信号审查和自动 Review | 需要当场运行本机私有环境的检查 |
 | Sites | 快速创建、保存、部署 OpenAI 托管站点 | 已经有明确 Cloudflare/Vercel/自建部署要求的项目 |
@@ -115,6 +116,19 @@ Codex App 适合复杂工作：你可以让它读图、控制浏览器、查连�
 - 做多轮 Review 和修复。
 
 App 的强项是把“人的判断”和“代理执行”放在同一个线程里。你可以边看它推进，边补充约束，而不是每一步都重新解释背景。
+
+### Browser、Chrome 与 Computer Use
+
+这三类入口看起来都能“操作界面”，但真相源和权限边界不同。选错入口，常见结果是丢登录态、拿不到 DevTools 信息，或者用视觉点击代替本来更稳定的结构化接口。
+
+| 能力 | 什么时候用 | 关键边界 |
+| --- | --- | --- |
+| 内置 Browser | 打开网页、检查渲染结果、截图、做可重复的页面测试 | 使用 Codex 管理的浏览器环境，不默认继承日常 Chrome 的登录状态 |
+| Chrome | 任务依赖你已经打开的标签页、Cookies、扩展或登录状态 | 通过 Chrome 插件连接现有 profile；网络、Console、DOM 和性能问题优先开 Developer mode |
+| Computer Use | 操作 Finder、Excel、设计工具等桌面应用，或复现只发生在 GUI 里的问题 | 需要屏幕录制和辅助功能权限；能用专用插件、MCP 或 CLI 时优先走结构化接口 |
+| Remote connections | 从 Codex App 连接远程 Mac、PC 或 SSH 主机上的项目 | 远端必须能启动 Codex app server；本地未同步文件和权限不会自动跟过去 |
+
+选择口诀：普通网页验证用 Browser；必须复用现有登录态用 Chrome；跨出浏览器操作桌面 App 才用 Computer Use；代码和运行环境在另一台机器上时用 Remote connections。
 
 ### Cloud：并行和远程执行
 
@@ -797,17 +811,23 @@ url = "https://developers.openai.com/mcp"
 
 ## 官方资源
 
-- [OpenAI Codex 文档](https://developers.openai.com/codex/)
-- [Codex Best Practices](https://developers.openai.com/codex/learn/best-practices)
-- [Codex Prompting](https://developers.openai.com/codex/prompting)
-- [AGENTS.md 指南](https://developers.openai.com/codex/guides/agents-md)
-- [Codex Skills](https://developers.openai.com/codex/skills)
-- [Codex MCP](https://developers.openai.com/codex/mcp)
-- [Codex Execution Plans Cookbook](https://cookbook.openai.com/articles/codex_exec_plans)
-- [Codex GitHub Review](https://developers.openai.com/codex/integrations/github)
+- [Codex 文档](https://learn.chatgpt.com/docs)
+- [Codex Best Practices](https://learn.chatgpt.com/guides/best-practices)
+- [Prompting 与 Goal mode](https://learn.chatgpt.com/docs/prompting)
+- [AGENTS.md 指南](https://learn.chatgpt.com/docs/agent-configuration/agents-md)
+- [Skills](https://learn.chatgpt.com/docs/build-skills)
+- [MCP](https://learn.chatgpt.com/docs/extend/mcp?surface=cli)
+- [内置 Browser](https://learn.chatgpt.com/docs/browser?surface=app)
+- [Chrome 插件](https://learn.chatgpt.com/docs/chrome-extension)
+- [Computer Use](https://learn.chatgpt.com/docs/computer-use)
+- [Remote connections](https://learn.chatgpt.com/docs/remote-connections)
+- [Execution Plans Cookbook](https://developers.openai.com/cookbook/articles/codex_exec_plans)
+- [GitHub Review](https://learn.chatgpt.com/docs/third-party/github)
 - [Cloudflare Workers Static Assets](https://developers.cloudflare.com/workers/static-assets/)
 - [Wrangler 配置文档](https://developers.cloudflare.com/workers/wrangler/configuration/)
 - [Cloudflare Workers Routes](https://developers.cloudflare.com/workers/configuration/routing/routes/)
+
+> 最后核对：2026-07-10。Codex 的表面、权限和扩展能力更新很快，使用时以官方文档和当前客户端实际可见能力为准。
 
 <div class="callout-strip">
   <strong>这份 Playbook 的一句话版本</strong>
