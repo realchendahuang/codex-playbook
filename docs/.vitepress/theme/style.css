@@ -94,7 +94,7 @@
 
 .vp-doc p,
 .vp-doc li {
-  font-size: 15px;
+  font-size: 16px;
   line-height: 1.78;
 }
 
@@ -261,8 +261,14 @@
 .quick-grid span {
   display: block;
   color: var(--vp-c-text-2);
-  font-size: 12px;
+  font-size: 13px;
   line-height: 1.55;
+}
+
+.VPNavScreenMenuGroupLink {
+  min-height: 44px;
+  line-height: 44px !important;
+  touch-action: manipulation;
 }
 
 .play-grid {
@@ -337,6 +343,21 @@
     font-size: 28px;
   }
 
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  .quick-grid a:hover {
+    transform: none;
+  }
 }
 
 @media (min-width: 861px) and (max-width: 1120px) {

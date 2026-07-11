@@ -56,7 +56,7 @@ export default defineConfig({
     logo: '/favicon.svg',
     nav: [
       { text: '手册', link: '/' },
-      { text: 'OpenAI Codex', link: 'https://learn.chatgpt.com/docs' },
+      { text: 'OpenAI Codex', link: 'https://learn.chatgpt.com/docs/developers' },
       {
         text: 'Playbooks',
         items: [
