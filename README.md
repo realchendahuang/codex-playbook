@@ -1,5 +1,13 @@
 # Codex Playbook
 
+
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
+[![GitHub stars](https://img.shields.io/github/stars/realchendahuang/codex-playbook?style=social)](https://github.com/realchendahuang/codex-playbook)
+[![GitHub forks](https://img.shields.io/github/forks/realchendahuang/codex-playbook?style=social)](https://github.com/realchendahuang/codex-playbook/network/members)
+[![GitHub issues](https://img.shields.io/github/issues/realchendahuang/codex-playbook)](https://github.com/realchendahuang/codex-playbook/issues)
+[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](https://github.com/realchendahuang/codex-playbook/pulls)
+[![Follow @realchendahuang](https://img.shields.io/badge/Follow-%40realchendahuang-1DA1F2?logo=x&logoColor=white)](https://x.com/realchendahuang)
+
 把 Codex 当成长期协作系统的中文实战手册。
 
 在线阅读：[chendahuang.com/playbook/codex](https://chendahuang.com/playbook/codex/)
