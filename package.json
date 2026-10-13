@@ -20,7 +20,7 @@
     "clean:dist": "node scripts/clean-dist.mjs",
     "sync:readme": "node scripts/sync-readme.mjs",
     "deploy:quick": "node scripts/deploy.mjs",
-    "deploy": "pnpm check && wrangler deploy"
+    "deploy": "pnpm check && cf deploy"
   },
   "repository": {
     "type": "git",
@@ -29,9 +29,10 @@
   "devDependencies": {
     "@cloudflare/workers-types": "^5.20260710.1",
     "@lucide/vue": "^1.24.0",
+    "cf": "1.0.0-beta.14",
     "typescript": "^7.0.2",
     "vitepress": "^1.6.4",
-    "wrangler": "^4.110.0"
+    "wrangler": "^4.149.0"
   },
   "pnpm": {
     "onlyBuiltDependencies": [

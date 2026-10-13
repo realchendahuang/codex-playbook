@@ -4,3 +4,5 @@ docs/.vitepress/dist/
 .wrangler/
 .DS_Store
 *.log
+
+.cloudflare
